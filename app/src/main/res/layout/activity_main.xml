@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/storeDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Store:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Store Counter (TOP) -->
     <TextView
         android:id="@+id/counterDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:text="Scanned at this Store: 0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/storeDisplay" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Order Counter -->
+    <TextView
+        android:id="@+id/orderCounterDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Scanned for this Order: 0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintTop_toBottomOf="@id/counterDisplay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- SKU / UPC -->
     <TextView
         android:id="@+id/upcDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:text="SKU:\nUPC:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintTop_toBottomOf="@id/orderCounterDisplay"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/storeDisplay" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Description -->
     <TextView
         android:id="@+id/descriptionDisplay"
         android:layout_width="wrap_content"
@@ -47,61 +51,102 @@
         android:layout_marginTop="20dp"
         android:text="Description:\nSize:"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintTop_toBottomOf="@id/upcDisplay"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/upcDisplay" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/sizeDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Shipping Container:\nTray Qty:\nCC Cart Qty:\nEZ Rack Qty:\nInput Qty:"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/descriptionDisplay" />
+    <!-- Size / Qty Info -->
 
+    <!-- Remove Last Scan -->
+
+    <!-- Enter Initials Button -->
+
+    <!-- Enter Order Button -->
+
+    <!-- Operator Display -->
     <Button
         android:id="@+id/removeLastButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="375dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Remove Last Scan"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#F44336"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
+        android:text="Remove Last Scan"
+        app:layout_constraintTop_toBottomOf="@id/descriptionDisplay"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/enterInitialsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:backgroundTint="#4053DB"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#4CAF50"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:text="Enter Initials"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/enterOrderButton"
+        app:layout_constraintEnd_toStartOf="@id/enterOrderButton"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/removeLastButton" />
+        app:layout_constraintTop_toBottomOf="@id/removeLastButton"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/operatorInitialsDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="Operator: "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_marginTop="28dp"
-        app:layout_constraintTop_toBottomOf="@id/enterInitialsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/enterInitialsButton" />
 
+    <TextView
+        android:id="@+id/storeDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Store:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/operatorInitialsDisplay" />
+
+    <TextView
+        android:id="@+id/orderNumberDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Order Number: "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/storeDisplay" />
+
+    <Button
+        android:id="@+id/enterOrderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#4CAF50"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Enter Order #"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/enterInitialsButton"
+        app:layout_constraintTop_toBottomOf="@id/removeLastButton" />
+
+    <!-- Store Display -->
+
+    <!-- Order Number Display -->
+
+    <!-- Hidden Scanner Input -->
     <EditText
         android:id="@+id/scanInput"
         android:layout_width="1dp"
@@ -110,7 +155,7 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sizeDisplay" />
+        app:layout_constraintTop_toBottomOf="@id/orderNumberDisplay"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
